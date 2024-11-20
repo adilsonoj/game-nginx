@@ -1,0 +1,18 @@
+on:
+    push:
+        branches: ["main"]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v3
+        - uses: mr-smithers-excellent/docker-build-push@v6
+          name: Build & push Docker image
+          with:
+                image: game-nginx
+                tags: latest
+                registry: ghcr.io/adilsonoj
+                dockerfile: Dockerfile
+                username: adilsonoj
+                password: ${{ secrets.GH_TOKEN }} 

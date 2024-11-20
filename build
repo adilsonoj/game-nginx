@@ -1,0 +1,7 @@
+#/bin/bash
+
+
+cat ~/Documents/docker-pass/gh_token | docker login ghcr.io --username adilsonoj --password-stdin
+
+docker build -t ghcr.io/adilsonoj/game-nginx .
+docker push ghcr.io/adilsonoj/game-nginx
